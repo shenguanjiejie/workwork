@@ -1,3 +1,27 @@
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.linux
+*.xlsx
+ww
+/*.png
+
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -5,11 +29,104 @@
 *.so
 *.dylib
 
+*.prof
+
 # Test binary, built with `go test -c`
 *.test
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# Intellij
+# *.iml
+# .idea/
+
+# VSC
+# .vscode/
+
+output
+_upgrade
+*.pid
+
+*.log
+
+# 2021-09-26 12:26:56 merge我的ignore 语法参考: https://zhuanlan.zhihu.com/p/345124792
+#Mac OS X Finder
+.DS_Store
+# Sparkle distribution Private Key (Don’t check me in!)
+dsa_priv.pem
+# XCode (and ancestors) per-user config (very noisy, and not relevant)
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcuserstate
+# Xcode 4
+xcuserdata/
+project.xcworkspace/
+DerivedData
+# Generated files
+VersionX-revision.h
+# build products
+build/
+pkg/
+Docs/
+SenseID-doc/
+
+*.o
+# Other source repository archive directories (protects when importing)
+.hg
+.svn
+CVS
+# automatic backup files
+*~.nib
+*.swp
+*~
+~
+# MCV's FaceSDK 
+*.tgz
+mcv_facesdk/
+mcv_facesdk_ios/
+# Android
+.gradle
+.idea
+bin
+gen
+/android/SDKCloud/.metadata
+/android/SDKCloud/STAPI/.settings
+.iml
+.settings
+.classpath
+#packages
+_package/
+oclint_result.xml
+swiftLintResult.txt
+tmp/
+infer-out/
+Pods/
+API.swift
+!Podfile
+!Podfile.lock
+
+#web 2021-09-26 14:49:40
+dist/
+node_modules/
+.npmrc
+.cache
+
+tests/server/static
+tests/server/static/upload
+
+.local
+# local env files
+.env.local
+.env.*.local
+.eslintcache
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

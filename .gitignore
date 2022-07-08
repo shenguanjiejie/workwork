@@ -4,7 +4,10 @@
 *.linux
 *.xlsx
 ww
+ww_darwin
+ww_linux
 /*.png
+/*.tar.gz
 
 # Folders
 _obj

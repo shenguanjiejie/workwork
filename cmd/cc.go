@@ -28,8 +28,8 @@ import (
 // ccCmd represents the cc command
 var ccCmd = &cobra.Command{
 	Use:   "cc",
-	Short: "计算器",
-	Long:  `使用Go解释器实现,支持各种运算符,逻辑运算以及位运算`,
+	Short: "Calculater<br>计算器",
+	Long:  `Based on Go interpreter, supports various operators, logical operations, and bitwise operations. <br>使用Go解释器实现,支持各种运算符,逻辑运算以及位运算`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		// intNumber := `([1-9]\d+)`

@@ -27,8 +27,8 @@ import (
 // goCmd represents the go command
 var goCmd = &cobra.Command{
 	Use:   "go",
-	Short: "使用字符串, 像脚本一样直接运行Go代码",
-	Long:  `fmt,time,os,math包默认引入, 其他包需单独import`,
+	Short: "Run Go scripts by string.<br>使用字符串, 像脚本一样直接运行Go代码",
+	Long:  `"fmt" "time" "os" "math" is imported by default,otherwise you should import packages by yourself.<br>fmt,time,os,math包默认引入, 其他包需单独import`,
 	Run: func(cmd *cobra.Command, args []string) {
 		i := interp.New(interp.Options{})
 

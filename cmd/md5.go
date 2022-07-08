@@ -28,7 +28,7 @@ import (
 var md5Cmd = &cobra.Command{
 	Use:   "md5",
 	Short: "md5",
-	Long:  `支持用空格隔开,传入多个字符串md5,支持文件md5`,
+	Long:  `Multiple encode support, split with space. and file supported too.<br>支持用空格隔开,传入多个字符串md5,支持文件md5`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		file, err := cmd.Flags().GetString(model.FileFlag.Name)

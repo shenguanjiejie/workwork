@@ -30,42 +30,42 @@ var FileFlag = &Flag[string]{
 	Name:      "file",
 	Shorthand: "f",
 	Value:     "",
-	Usage:     "指定文件的全路径",
+	Usage:     "Specify full file path.<br>指定文件的全路径",
 }
 
 var DecodeFlag = &Flag[bool]{
 	Name:      "decode",
 	Shorthand: "d",
 	Value:     false,
-	Usage:     "是否是要解码",
+	Usage:     "Decode flag. <br>是否是要解码",
 }
 
 var ImageFlagBase64 = &Flag[bool]{
 	Name:      "image",
 	Shorthand: "i",
 	Value:     false,
-	Usage:     "是否是对图片的编解码, 对图片编码会增加\"data:image/png;base64,\"前缀, 对base64进行图片解码会保存png文件到当前目录",
+	Usage:     "Image flag will append \"data:image/png;base64,\" to header of decode result, and save image to current path after encode.<br>是否是对图片的编解码, 对图片编码会增加\"data:image/png;base64,\"前缀, 对base64进行图片解码会保存png文件到当前目录",
 }
 
 var UnixFlag = &Flag[bool]{
 	Name:      "unix",
 	Shorthand: "u",
 	Value:     false,
-	Usage:     "指定时间戳, 支持秒级和毫秒级时间戳",
+	Usage:     "Input a Unix time or millisecond Unix time. <br>指定时间戳, 支持秒级和毫秒级时间戳",
 }
 
 var WannaFlag = &Flag[string]{
 	Name:      "wanna",
 	Shorthand: "w",
 	Value:     "",
-	Usage:     "查找常用的正则表达式",
+	Usage:     "Find common regex. <br>查找常用的正则表达式",
 }
 
 var MatchFlag = &Flag[bool]{
 	Name:      "match",
 	Shorthand: "m",
 	Value:     false,
-	Usage:     "能否找到正则匹配的项, 返回true或者false",
+	Usage:     "Return true or false by match result. <br>能否找到正则匹配的项, 返回true或者false",
 }
 
 // 默认使用find策略
@@ -80,5 +80,5 @@ var FindFlagCount = &Flag[int]{
 	Name:      "count",
 	Shorthand: "c",
 	Value:     1,
-	Usage:     "使用查找匹配文本内容时, 用该int值指定返回的最大匹配数量, 默认只返回第一个匹配项",
+	Usage:     "Specify the maximum number of matches. return the first one by default.<br> 使用查找匹配文本内容时, 用该int值指定返回的最大匹配数量, 默认只返回第一个匹配项",
 }

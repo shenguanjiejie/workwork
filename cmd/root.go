@@ -30,7 +30,7 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "workwork",
-	Short: "开发/测试常用工具的命令行实现",
+	Short: "Developer/Tester common tools CLI. <br>开发/测试常用工具CLI",
 	Long:  `开源地址: https://github.com/shenguanjiejie/workwork `,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:

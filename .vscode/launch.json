@@ -12,6 +12,7 @@
       "mode": "debug",
       "program": "${workspaceFolder}/main.go",
       "showLog": true
+      // "args": ["base64","-d","-i","~/Desktop/base64.txt"]
     }
   ]
 }

@@ -56,8 +56,8 @@ var weekMap = map[time.Weekday]string{
 // timeCmd represents the time command
 var timeCmd = &cobra.Command{
 	Use:   "time",
-	Short: "时间转换工具",
-	Long:  `支持用空格隔开, 一次进行多个时间转换`,
+	Short: "Time format tool.<br>时间转换工具",
+	Long:  `Multiple support, split with space.<br>支持用空格隔开, 一次进行多个时间转换`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		unixB, err := cmd.Flags().GetBool(model.UnixFlag.Name)

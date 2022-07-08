@@ -27,8 +27,8 @@ import (
 // urlCmd represents the url command
 var urlCmd = &cobra.Command{
 	Use:   "url",
-	Short: "url编码/解码",
-	Long:  `url编码/解码`,
+	Short: "URL encode/decode.<br>url编码/解码",
+	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
 			tools.Slogln("没有输入url")
@@ -76,4 +76,5 @@ func init() {
 	model.Commands = append(model.Commands, command)
 }
 
-// go run main.go url -d "https://www.google.com.hk/search\?q\=%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E6%B5%8B%E8%AF%95\&newwindow\=1\&sxsrf\=ALiCzsY_MY3Pwc2PkrIHIiu2phaGaF3DMA%3A1657124839034\&ei\=57fFYuXXAd6g1e8P6O6l6AM\&ved\=0ahUKEwil54OL1-T4AhVeUPUHHWh3CT0Q4dUDCA4\&uact\=5\&oq\=%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E6%B5%8B%E8%AF%95\&gs_lcp\=Cgdnd3Mtd2l6EAM6BAgjECc6BAgAEEM6CwguEIAEEMcBEKMCOgsILhCABBDHARDRAzoFCAAQgAQ6BQgAEMsBOgcIABCABBAMOg4ILhCABBDHARCjAhDUAjoECC4QQzoFCC4QgAQ6CAguEIAEENQCOgUILhDLAUoECEEYAEoECEYYAFAAWLlvYN9xaABwAXgAgAGTAYgB3xiSAQUyMi4xMZgBAKABAcABAQ\&sclient\=gws-wiz"
+// url https://www.google.com.hk/search\?q\=中文搜索测试
+// go run main.go url -d "https://www.google.com.hk/search\?q\=%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E6%B5%8B%E8%AF%95"

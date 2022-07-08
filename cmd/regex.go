@@ -28,8 +28,8 @@ import (
 // regexCmd represents the regex command
 var regexCmd = &cobra.Command{
 	Use:   "regex",
-	Short: "正则表达式测试工具",
-	Long:  `正则表达式测试工具`,
+	Short: "regex test tool.<br>正则表达式测试工具",
+	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		// tools.Slogln(args)
 		wanna, err := cmd.Flags().GetString(model.WannaFlag.Name)
@@ -129,6 +129,6 @@ func init() {
 	model.Commands = append(model.Commands, command)
 }
 
-// go run main.go regex -w "身份证1代"
-// go run main.go regex "Don't Worry, Be H[a-z]+" "Don't Worry, Be Happy~"
-// go run main.go regex -c 10 "\\w+" "Dont Worry, Be Happy~"
+// go run main.go regex -w 身份证1代
+// go run main.go regex "Don't .+, Be H[a-z]+" "Don't W orry, Be Happy~~~"
+// go run main.go regex -c 10 "\\w+" "Dont Worry, Be Happy~~~"

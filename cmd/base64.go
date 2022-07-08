@@ -32,8 +32,8 @@ import (
 // base64Cmd represents the base64 command
 var base64Cmd = &cobra.Command{
 	Use:   "base64",
-	Short: "base64编码/解码",
-	Long:  `支持用空格隔开, 一次进行多个编码/解码`,
+	Short: "base64 encode/decode. <br>base64编码/解码",
+	Long:  `Multiple encode/decode support, split with space.<br>支持用空格隔开, 一次进行多个编码/解码`,
 	Run: func(cmd *cobra.Command, args []string) {
 		file, err := cmd.Flags().GetString(model.FileFlag.Name)
 		if err != nil {
@@ -166,7 +166,9 @@ func init() {
 	model.Commands = append(model.Commands, command)
 }
 
-// go run main.go base64 -d -i "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAECAYAAABY+sXzAAAAAXNSR0IArs4c6QAAAIRlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAAugAwAEAAAAAQAAAAQAAAAA8NSg1AAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KGV7hBwAAALVJREFUCB1jcGj9EuPe/DmbYep/nv8MDKwMQPBssy8XiAYBneV5VgxrXZRAbBbOf/84t3Pwrq5+9bD8vQLDs9dB9pwiApt/3ljfzWp3ouTnla9HVc8es+FR17a9zsTM9P8nw99/obx/fn5lfcXwn4GFlY+BiYHp7192PnZmBg7237wcnD8YmP6wMH5jYPj/nzGg+YMyyJoXgQxiQAHG/8cYhI6tOsZp1fK91bT7iwtI7klgtjAAs/tBHgdMJN4AAAAASUVORK5CYII="
-// go run main.go base64 -f -i '/Users/rj/Desktop/2.png'
-// go run main.go base64 -d -f '/Users/rj/Desktop/base64.txt'
+// ww base64 123
 // go run main.go base64 -d MTIz
+// go run main.go base64 -f '/Users/rj/Desktop/2.png'
+// go run main.go base64 -i -f '/Users/rj/Desktop/2.png'
+// go run main.go base64 -d -i "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAECAYAAABY+sXzAAAAAXNSR0IArs4c6QAAAIRlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAAugAwAEAAAAAQAAAAQAAAAA8NSg1AAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KGV7hBwAAALVJREFUCB1jcGj9EuPe/DmbYep/nv8MDKwMQPBssy8XiAYBneV5VgxrXZRAbBbOf/84t3Pwrq5+9bD8vQLDs9dB9pwiApt/3ljfzWp3ouTnla9HVc8es+FR17a9zsTM9P8nw99/obx/fn5lfcXwn4GFlY+BiYHp7192PnZmBg7237wcnD8YmP6wMH5jYPj/nzGg+YMyyJoXgQxiQAHG/8cYhI6tOsZp1fK91bT7iwtI7klgtjAAs/tBHgdMJN4AAAAASUVORK5CYII="
+// go run main.go base64 -d -i -f '/Users/rj/Desktop/base64.txt'

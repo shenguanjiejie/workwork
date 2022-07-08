@@ -17,8 +17,10 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"workwork/cmd/model"
 
+	"github.com/shenguanjiejie/go-tools"
 	"github.com/spf13/cobra"
 )
 
@@ -28,13 +30,17 @@ var readmeCmd = &cobra.Command{
 	Short: "readme",
 	Long:  `readme`,
 	Run: func(cmd *cobra.Command, args []string) {
-		readme := `
-## workwork
-开发/测试常用工具的命令行实现
-`
+		readme := fmt.Sprintf("# %s\n%s\n", rootCmd.Use, rootCmd.Short)
+		readme = readme + "# Install\n###### Mac\n```zsh\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```zsh\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_darwin.tar.gz && tar -zxvf ./workwork_0.0.1_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_darwin.tar.gz\n```\n"
+		readme = readme + "###### Linux\n```zsh\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.1_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_linux_x86_64.tar.gz\n```\n"
 
 		for _, cmd := range model.Commands {
-			readme = readme + fmt.Sprintf("# %s\n%s\n%s\n", cmd.Use, cmd.Title, cmd.SubTitle)
+			if cmd.SubTitle == "" {
+				readme = readme + fmt.Sprintf("# %s\n%s\n", cmd.Use, cmd.Title)
+			} else {
+				readme = readme + fmt.Sprintf("# %s\n%s<br>%s\n", cmd.Use, cmd.Title, cmd.SubTitle)
+			}
+
 			if len(cmd.FlagIntArr)+len(cmd.FlagStringArr)+len(cmd.FlagBoolArr) > 0 {
 				readme = readme + `
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
@@ -53,8 +59,24 @@ var readmeCmd = &cobra.Command{
 			for _, flagInfo := range cmd.FlagBoolArr {
 				readme = readme + fmt.Sprintf("|--%s|-%s|%v|%s|\n", flagInfo.Name, flagInfo.Shorthand, flagInfo.Value, flagInfo.Usage)
 			}
+
+			readme = readme + fmt.Sprintf("\n![%s](resources/%s.png)\n", cmd.Use, cmd.Use)
 		}
 
+		readme = readme + `
+# TODO:
+1. 默认保存路径配置, 默认读取文件路径配置. (Default I/O path config)
+2. 单元测试. (Unit testing)
+3. Alfred支持. (Alfred support)
+4. 英文版本. (English version)
+5. color command, 色值转换(类似"time")
+6. ...
+`
+		err := os.WriteFile("README.md", []byte(readme), 0755)
+		if err != nil {
+			tools.Slogln(err)
+			return
+		}
 		fmt.Println(readme)
 	},
 }

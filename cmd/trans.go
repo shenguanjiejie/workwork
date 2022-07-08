@@ -29,7 +29,7 @@ import (
 // transCmd represents the trans command
 var transCmd = &cobra.Command{
 	Use:   "trans",
-	Short: "汉英/英汉翻译",
+	Short: "Chinese/English Translate tool.<br>汉英/英汉翻译",
 	Long:  `更详细的单词释义音标等, 后续考虑加入`,
 	Run: func(cmd *cobra.Command, args []string) {
 

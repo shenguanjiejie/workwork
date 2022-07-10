@@ -75,6 +75,5 @@ URL encode/decode.<br>url编码/解码
 1. 默认保存路径配置, 默认读取文件路径配置. (Default I/O path config)
 2. 单元测试. (Unit testing)
 3. Alfred支持. (Alfred support)
-4. 英文版本. (English version)
-5. color command, 色值转换(类似"time")
-6. ...
+4. color command, 色值转换(类似"time")
+5. ...

@@ -30,9 +30,10 @@ var readmeCmd = &cobra.Command{
 	Short: "readme",
 	Long:  `readme`,
 	Run: func(cmd *cobra.Command, args []string) {
+		version := "0.0.1"
 		readme := fmt.Sprintf("# %s\n%s\n", rootCmd.Use, rootCmd.Short)
-		readme = readme + "# Install\n###### Mac\n```zsh\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```zsh\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_darwin.tar.gz && tar -zxvf ./workwork_0.0.1_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_darwin.tar.gz\n```\n"
-		readme = readme + "###### Linux\n```zsh\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.1_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_linux_x86_64.tar.gz\n```\n"
+		readme = readme + fmt.Sprintf("# Install\n###### Mac\n```zsh\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```zsh\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_darwin.tar.gz && tar -zxvf ./workwork_%s_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_darwin.tar.gz\n```\n", version, version, version, version)
+		readme = readme + fmt.Sprintf("###### Linux\n```zsh\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_linux_x86_64.tar.gz && tar -zxvf ./workwork_%s_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_linux_x86_64.tar.gz\n```\n", version, version, version, version)
 
 		for _, cmd := range model.Commands {
 			if cmd.SubTitle == "" {
@@ -68,9 +69,8 @@ var readmeCmd = &cobra.Command{
 1. 默认保存路径配置, 默认读取文件路径配置. (Default I/O path config)
 2. 单元测试. (Unit testing)
 3. Alfred支持. (Alfred support)
-4. 英文版本. (English version)
-5. color command, 色值转换(类似"time")
-6. ...
+4. color command, 色值转换(类似"time")
+5. ...
 `
 		err := os.WriteFile("README.md", []byte(readme), 0755)
 		if err != nil {

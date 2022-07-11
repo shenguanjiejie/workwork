@@ -31,7 +31,7 @@ var readmeCmd = &cobra.Command{
 	Long:  `readme`,
 	Run: func(cmd *cobra.Command, args []string) {
 		version := "0.0.1"
-		download := "or\n[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move \"ww\" to /usr/local/bin.\n到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可\n"
+		download := "or<br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move \"ww\" to /usr/local/bin.\n到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可\n"
 		readme := fmt.Sprintf("# %s\n%s\n", rootCmd.Use, rootCmd.Short)
 		readme = readme + fmt.Sprintf("# Install\n##### Mac\n```shell\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```shell\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_darwin.tar.gz && tar -zxvf ./workwork_%s_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_darwin.tar.gz\n```\n%s", version, version, version, version, download)
 		readme = readme + fmt.Sprintf("##### Linux\n```shell\ncurl -LO https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_linux_x86_64.tar.gz && tar -zxvf ./workwork_%s_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_linux_x86_64.tar.gz\n```\n%s", version, version, version, version, download)

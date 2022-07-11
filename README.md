@@ -9,14 +9,12 @@ or
 ```shell
 curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_darwin.tar.gz && tar -zxvf ./workwork_0.0.1_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_darwin.tar.gz
 ```
-or<br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.
-到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
+or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
 ##### Linux
 ```shell
 curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.1_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_linux_x86_64.tar.gz
 ```
-or<br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.
-到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
+or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
 # base64
 base64 encode/decode. <br>base64编码/解码<br>Multiple encode/decode support, split with space.<br>支持用空格隔开, 一次进行多个编码/解码
 

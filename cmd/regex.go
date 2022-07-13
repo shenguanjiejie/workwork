@@ -28,7 +28,7 @@ import (
 // regexCmd represents the regex command
 var regexCmd = &cobra.Command{
 	Use:   "regex",
-	Short: "regex test tool.<br>正则表达式测试工具",
+	Short: "Regex test tool.<br>正则表达式测试工具",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		// tools.Slogln(args)

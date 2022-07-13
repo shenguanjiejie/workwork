@@ -1,7 +1,23 @@
 # workwork
 Developer/Tester common tools CLI. <br>开发/测试常用工具CLI
+
+> [base64 encode/decode. <br>base64编码/解码](#base64)
+
+> [Calculater<br>计算器](#cc)
+
+> [Run Go scripts by string.<br>使用字符串, 像脚本一样直接运行Go代码](#go)
+
+> [md5](#md5)
+
+> [regex test tool.<br>正则表达式测试工具](#regex)
+
+> [Time format tool.<br>时间转换工具](#time)
+
+> [Chinese/English Translate tool.<br>汉英/英汉翻译](#trans)
+
+> [URL encode/decode.<br>url编码/解码](#url)
 # Install
-##### Mac
+### Mac
 ```shell
 brew install shenguanjiejie/tap/workwork
 ```
@@ -10,7 +26,7 @@ or
 curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_darwin.tar.gz && tar -zxvf ./workwork_0.0.1_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_darwin.tar.gz
 ```
 or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
-##### Linux
+### Linux
 ```shell
 curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/workwork_0.0.1_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.1_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.1_linux_x86_64.tar.gz
 ```

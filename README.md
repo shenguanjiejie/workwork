@@ -59,6 +59,7 @@ md5<br>Multiple encode support, split with space. and file supported too.<br>支
 ![md5](resources/md5.png)
 # regex
 Regex test tool.<br>正则表达式测试工具
+Source: [https://github.com/any86/any-rule](https://github.com/any86/any-rule)
 
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
 |---|---|---|---|

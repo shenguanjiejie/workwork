@@ -66,6 +66,10 @@ func works() (string, string) {
 			works = works + fmt.Sprintf("# %s\n%s<br>%s\n", cmd.Use, cmd.Title, cmd.SubTitle)
 		}
 
+		if cmd.Use == "regex" {
+			works = works + "Source: [https://github.com/any86/any-rule](https://github.com/any86/any-rule)\n"
+		}
+
 		if len(cmd.FlagIntArr)+len(cmd.FlagStringArr)+len(cmd.FlagBoolArr) > 0 {
 			works = works + `
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|

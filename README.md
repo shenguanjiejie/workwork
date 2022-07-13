@@ -1,7 +1,7 @@
 # workwork
 Developer/Tester common tools CLI. <br>开发/测试常用工具CLI
 
-> [Base64 encode/decode. <br>base64编码/解码](#base64)
+> [Base64 encode/decode. <br>Base64编码/解码](#base64)
 
 > [Calculater<br>计算器](#cc)
 
@@ -15,7 +15,7 @@ Developer/Tester common tools CLI. <br>开发/测试常用工具CLI
 
 > [Chinese/English Translate tool.<br>汉英/英汉翻译](#trans)
 
-> [URL encode/decode.<br>url编码/解码](#url)
+> [URL encode/decode.<br>URL编码/解码](#url)
 # Install
 ### Mac
 ```shell
@@ -32,7 +32,7 @@ curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.1/wor
 ```
 or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
 # base64
-Base64 encode/decode. <br>base64编码/解码<br>Multiple encode/decode support, split with space.<br>支持用空格隔开, 一次进行多个编码/解码
+Base64 encode/decode. <br>Base64编码/解码<br>Multiple encode/decode support, split with space.<br>支持用空格隔开, 一次进行多个编码/解码
 
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
 |---|---|---|---|
@@ -81,7 +81,7 @@ Chinese/English Translate tool.<br>汉英/英汉翻译<br>更详细的单词释�
 
 ![trans](resources/trans.png)
 # url
-URL encode/decode.<br>url编码/解码
+URL encode/decode.<br>URL编码/解码
 
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
 |---|---|---|---|

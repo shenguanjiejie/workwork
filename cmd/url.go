@@ -27,11 +27,11 @@ import (
 // urlCmd represents the url command
 var urlCmd = &cobra.Command{
 	Use:   "url",
-	Short: "URL encode/decode.<br>url编码/解码",
+	Short: "URL encode/decode.<br>URL编码/解码",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			tools.Slogln("没有输入url")
+			tools.Slogln("没有输入URL")
 			return
 		}
 

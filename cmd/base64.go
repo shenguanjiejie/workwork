@@ -32,7 +32,7 @@ import (
 // base64Cmd represents the base64 command
 var base64Cmd = &cobra.Command{
 	Use:   "base64",
-	Short: "Base64 encode/decode. <br>base64编码/解码",
+	Short: "Base64 encode/decode. <br>Base64编码/解码",
 	Long:  `Multiple encode/decode support, split with space.<br>支持用空格隔开, 一次进行多个编码/解码`,
 	Run: func(cmd *cobra.Command, args []string) {
 		file, err := cmd.Flags().GetString(model.FileFlag.Name)

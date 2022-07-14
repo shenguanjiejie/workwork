@@ -66,7 +66,7 @@ var md5Cmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(md5Cmd)
-	command := new(model.Command)
+	command := new(model.Command[any])
 	command.Title = md5Cmd.Short
 	command.SubTitle = md5Cmd.Long
 	command.Use = md5Cmd.Use

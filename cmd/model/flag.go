@@ -15,53 +15,49 @@ limitations under the License.
 */
 package model
 
-type FlagT interface {
-	~int | ~string | ~bool
-}
-
-type Flag[T FlagT] struct {
+type Flag[T any] struct {
 	Name      string
 	Shorthand string
 	Value     T
 	Usage     string
 }
 
-var FileFlag = &Flag[string]{
+var FileFlag = &Flag[any]{
 	Name:      "file",
 	Shorthand: "f",
 	Value:     "",
 	Usage:     "Specify full file path.<br>指定文件的全路径",
 }
 
-var DecodeFlag = &Flag[bool]{
+var DecodeFlag = &Flag[any]{
 	Name:      "decode",
 	Shorthand: "d",
 	Value:     false,
 	Usage:     "Decode flag. <br>是否是要解码",
 }
 
-var ImageFlagBase64 = &Flag[bool]{
+var ImageFlagBase64 = &Flag[any]{
 	Name:      "image",
 	Shorthand: "i",
 	Value:     false,
 	Usage:     "Image flag will append \"data:image/png;base64,\" to header of decode result, and save image to current path after encode.<br>是否是对图片的编解码, 对图片编码会增加\"data:image/png;base64,\"前缀, 对base64进行图片解码会保存png文件到当前目录",
 }
 
-var UnixFlag = &Flag[bool]{
+var UnixFlag = &Flag[any]{
 	Name:      "unix",
 	Shorthand: "u",
 	Value:     false,
 	Usage:     "Input a Unix time or millisecond Unix time. <br>指定时间戳, 支持秒级和毫秒级时间戳",
 }
 
-var WannaFlag = &Flag[string]{
+var WannaFlag = &Flag[any]{
 	Name:      "wanna",
 	Shorthand: "w",
 	Value:     "",
 	Usage:     "Find common regex. <br>查找常用的正则表达式",
 }
 
-var MatchFlag = &Flag[bool]{
+var MatchFlag = &Flag[any]{
 	Name:      "match",
 	Shorthand: "m",
 	Value:     false,
@@ -76,7 +72,7 @@ var MatchFlag = &Flag[bool]{
 // 	Usage:     "是否要用正则表达式查找文本内匹配的内容, 默认返回第一个匹配项, 如果要返回多个, 使用--count(缩写-c)指定最大的返回数量",
 // }
 
-var FindFlagCount = &Flag[int]{
+var FindFlagCount = &Flag[any]{
 	Name:      "count",
 	Shorthand: "c",
 	Value:     1,

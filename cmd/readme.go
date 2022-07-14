@@ -43,7 +43,6 @@ var readmeCmd = &cobra.Command{
 4. color command, 色值转换(类似"time")
 5. ...
 `
-
 		readme := fmt.Sprintf("# %s\n%s\n", rootCmd.Use, rootCmd.Short)
 		readme = readme + worksAnchor + macInstall + linuxInstall + works + todo
 		err := os.WriteFile("README.md", []byte(readme), 0755)
@@ -70,25 +69,16 @@ func works() (string, string) {
 			works = works + "Source: [https://github.com/any86/any-rule](https://github.com/any86/any-rule)\n"
 		}
 
-		if len(cmd.FlagIntArr)+len(cmd.FlagStringArr)+len(cmd.FlagBoolArr) > 0 {
+		if len(cmd.Flags) > 0 {
 			works = works + `
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
 |---|---|---|---|
 `
 		}
 
-		for _, flagInfo := range cmd.FlagIntArr {
-			works = works + fmt.Sprintf("|--%s|-%s|%d|%s|\n", flagInfo.Name, flagInfo.Shorthand, flagInfo.Value, flagInfo.Usage)
-		}
-
-		for _, flagInfo := range cmd.FlagStringArr {
-			works = works + fmt.Sprintf("|--%s|-%s|%s|%s|\n", flagInfo.Name, flagInfo.Shorthand, flagInfo.Value, flagInfo.Usage)
-		}
-
-		for _, flagInfo := range cmd.FlagBoolArr {
+		for _, flagInfo := range cmd.Flags {
 			works = works + fmt.Sprintf("|--%s|-%s|%v|%s|\n", flagInfo.Name, flagInfo.Shorthand, flagInfo.Value, flagInfo.Usage)
 		}
-
 		works = works + fmt.Sprintf("\n![%s](resources/%s.png)\n", cmd.Use, cmd.Use)
 	}
 	return worksAnchor, works

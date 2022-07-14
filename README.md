@@ -50,10 +50,10 @@ regex test tool.<br>正则表达式测试工具
 
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
 |---|---|---|---|
-|--count|-c|1|Specify the maximum number of matches. return the first one by default.<br> 使用查找匹配文本内容时, 用该int值指定返回的最大匹配数量, 默认只返回第一个匹配项|
 |--file|-f||Specify full file path.<br>指定文件的全路径|
 |--wanna|-w||Find common regex. <br>查找常用的正则表达式|
 |--match|-m|false|Return true or false by match result. <br>能否找到正则匹配的项, 返回true或者false|
+|--count|-c|1|Specify the maximum number of matches. return the first one by default.<br> 使用查找匹配文本内容时, 用该int值指定返回的最大匹配数量, 默认只返回第一个匹配项|
 
 ![regex](resources/regex.png)
 # time

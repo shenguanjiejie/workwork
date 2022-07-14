@@ -68,7 +68,7 @@ var urlCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(urlCmd)
 
-	command := new(model.Command)
+	command := new(model.Command[any])
 	command.Title = urlCmd.Short
 	command.SubTitle = urlCmd.Long
 	command.Use = urlCmd.Use

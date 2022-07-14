@@ -69,7 +69,7 @@ var ccCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(ccCmd)
 
-	command := new(model.Command)
+	command := new(model.Command[any])
 	command.Title = ccCmd.Short
 	command.SubTitle = ccCmd.Long
 	command.Use = ccCmd.Use

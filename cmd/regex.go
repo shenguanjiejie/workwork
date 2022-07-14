@@ -118,7 +118,7 @@ var regexCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(regexCmd)
 
-	command := new(model.Command)
+	command := new(model.Command[any])
 	command.Title = regexCmd.Short
 	command.SubTitle = regexCmd.Long
 	command.Use = regexCmd.Use

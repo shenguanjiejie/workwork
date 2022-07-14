@@ -43,22 +43,14 @@ var readmeCmd = &cobra.Command{
 				readme = readme + fmt.Sprintf("# %s\n%s<br>%s\n", cmd.Use, cmd.Title, cmd.SubTitle)
 			}
 
-			if len(cmd.FlagIntArr)+len(cmd.FlagStringArr)+len(cmd.FlagBoolArr) > 0 {
+			if len(cmd.Flags) > 0 {
 				readme = readme + `
 |params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
 |---|---|---|---|
 `
 			}
 
-			for _, flagInfo := range cmd.FlagIntArr {
-				readme = readme + fmt.Sprintf("|--%s|-%s|%d|%s|\n", flagInfo.Name, flagInfo.Shorthand, flagInfo.Value, flagInfo.Usage)
-			}
-
-			for _, flagInfo := range cmd.FlagStringArr {
-				readme = readme + fmt.Sprintf("|--%s|-%s|%s|%s|\n", flagInfo.Name, flagInfo.Shorthand, flagInfo.Value, flagInfo.Usage)
-			}
-
-			for _, flagInfo := range cmd.FlagBoolArr {
+			for _, flagInfo := range cmd.Flags {
 				readme = readme + fmt.Sprintf("|--%s|-%s|%v|%s|\n", flagInfo.Name, flagInfo.Shorthand, flagInfo.Value, flagInfo.Usage)
 			}
 

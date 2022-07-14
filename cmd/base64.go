@@ -156,7 +156,7 @@ func base64Encode(content []byte, imageB bool) {
 func init() {
 	rootCmd.AddCommand(base64Cmd)
 
-	command := new(model.Command)
+	command := new(model.Command[any])
 	command.Title = base64Cmd.Short
 	command.SubTitle = base64Cmd.Long
 	command.Use = base64Cmd.Use

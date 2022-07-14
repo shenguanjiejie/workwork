@@ -148,7 +148,7 @@ func printDate(date time.Time) {
 func init() {
 	rootCmd.AddCommand(timeCmd)
 
-	command := new(model.Command)
+	command := new(model.Command[any])
 	command.Title = timeCmd.Short
 	command.SubTitle = timeCmd.Long
 	command.Use = timeCmd.Use

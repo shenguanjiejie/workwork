@@ -83,7 +83,7 @@ var transCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(transCmd)
 
-	command := new(model.Command)
+	command := new(model.Command[any])
 	command.Title = transCmd.Short
 	command.SubTitle = transCmd.Long
 	command.Use = transCmd.Use

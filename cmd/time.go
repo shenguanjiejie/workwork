@@ -74,7 +74,7 @@ var timeCmd = &cobra.Command{
 
 		for _, arg := range args {
 			if arg == "" {
-				fmt.Println("错误的时间格式")
+				tools.Slogln("错误的时间格式")
 				continue
 			}
 
@@ -90,7 +90,7 @@ var timeCmd = &cobra.Command{
 					} else if length <= 10 {
 						date = time.Unix(int64(argInt), 0)
 					} else {
-						fmt.Println("错误的时间戳格式")
+						tools.Slogln("错误的时间戳格式")
 						continue
 					}
 				} else {
@@ -98,7 +98,7 @@ var timeCmd = &cobra.Command{
 					layout := timeFormats[0][:length]
 					date, err = time.Parse(layout, arg)
 					if err != nil {
-						fmt.Println("错误的时间格式")
+						tools.Slogln("错误的时间格式")
 						continue
 					}
 				}
@@ -116,7 +116,7 @@ var timeCmd = &cobra.Command{
 			layout := timeFormats[0][:len(dateStr)]
 			date, err = time.Parse(layout, dateStr)
 			if err != nil {
-				fmt.Println("错误的时间格式")
+				tools.Slogln("错误的时间格式")
 				continue
 			}
 			printDate(date)
@@ -135,9 +135,13 @@ func printDate(date time.Time) {
 				fmt.Print(date.Format(format))
 			}
 			fmt.Print(" " + weekMap[date.Weekday()])
+		} else if i == 5 {
+			utcDate := date.UTC()
+			fmt.Print(utcDate.Format(format))
 		} else {
 			fmt.Print(date.Format(format))
 		}
+
 		if i != len(timeFormats)-1 {
 			fmt.Print("    ")
 		}

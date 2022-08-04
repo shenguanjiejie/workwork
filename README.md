@@ -23,12 +23,12 @@ brew install shenguanjiejie/tap/workwork
 ```
 or
 ```shell
-curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.2/workwork_0.0.2_darwin.tar.gz && tar -zxvf ./workwork_0.0.2_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.2_darwin.tar.gz
+curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.3/workwork_0.0.3_darwin.tar.gz && tar -zxvf ./workwork_0.0.3_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.3_darwin.tar.gz
 ```
 or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
 ### Linux
 ```shell
-curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.2/workwork_0.0.2_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.2_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.2_linux_x86_64.tar.gz
+curl -LO https://github.com/shenguanjiejie/workwork/releases/download/v0.0.3/workwork_0.0.3_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.3_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.3_linux_x86_64.tar.gz
 ```
 or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
 # base64

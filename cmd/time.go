@@ -96,7 +96,7 @@ var timeCmd = &cobra.Command{
 				} else {
 					// RJ 2022-07-05 21:25:49 20060102150405格式时间转换
 					layout := timeFormats[0][:length]
-					date, err = time.Parse(layout, arg)
+					date, err = time.ParseInLocation(layout, arg, time.Local)
 					if err != nil {
 						tools.Slogln("错误的时间格式")
 						continue
@@ -114,7 +114,7 @@ var timeCmd = &cobra.Command{
 				}
 			}
 			layout := timeFormats[0][:len(dateStr)]
-			date, err = time.Parse(layout, dateStr)
+			date, err = time.ParseInLocation(layout, dateStr, time.Local)
 			if err != nil {
 				tools.Slogln("错误的时间格式")
 				continue

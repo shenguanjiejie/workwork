@@ -33,8 +33,8 @@ var readmeCmd = &cobra.Command{
 		worksAnchor, works := works()
 		version := "0.0.3"
 		download := "or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move \"ww\" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可\n"
-		macInstall := fmt.Sprintf("# Install\n### Mac\n```shell\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_darwin.tar.gz && tar -zxvf ./workwork_%s_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_darwin.tar.gz\n```\n%s", version, version, version, version, download)
-		linuxInstall := fmt.Sprintf("### Linux\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_linux_x86_64.tar.gz && tar -zxvf ./workwork_%s_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_linux_x86_64.tar.gz\n```\n%s", version, version, version, version, download)
+		macInstall := fmt.Sprintf("# Install\n### Mac\n```shell\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_darwin.tar.gz && tar -zxvf ./workwork_%s_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_darwin.tar.gz && rm ./ww\n```\n%s", version, version, version, version, download)
+		linuxInstall := fmt.Sprintf("### Linux\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_linux_x86_64.tar.gz && tar -zxvf ./workwork_%s_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_linux_x86_64.tar.gz && rm ./ww\n```\n%s", version, version, version, version, download)
 		todo := `
 # TODO:
 1. 默认保存路径配置, 默认读取文件路径配置. (Default I/O path config)

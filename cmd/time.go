@@ -107,7 +107,7 @@ var timeCmd = &cobra.Command{
 			}
 
 			dateStr := ""
-			subStrArrAll := regexp.MustCompile(`[-/ \:年月日时分秒]{1}`).Split(arg, -1)
+			subStrArrAll := regexp.MustCompile(`[-/ \:\.年月日时分秒]`).Split(arg, -1)
 			for _, subStr := range subStrArrAll {
 				if subStr != "" {
 					dateStr = dateStr + subStr

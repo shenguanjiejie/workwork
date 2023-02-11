@@ -18,9 +18,10 @@ package cmd
 import (
 	"fmt"
 	"net/url"
-	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/workwork/cmd/model"
+
+	"github.com/shenguanjiejie/go-tools/v2"
 	"github.com/spf13/cobra"
 )
 
@@ -31,7 +32,7 @@ var urlCmd = &cobra.Command{
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			tools.Slogln("没有输入URL")
+			tools.Logln("没有输入URL")
 			return
 		}
 
@@ -39,20 +40,20 @@ var urlCmd = &cobra.Command{
 
 		decodeB, err := cmd.Flags().GetBool(model.DecodeFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 		if decodeB {
 			decodedStr, err := url.QueryUnescape(urlStr)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Logln(err)
 				return
 			}
 			fmt.Println(decodedStr)
 
 			decodedPathVar, err := url.PathUnescape(urlStr)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Logln(err)
 				return
 			}
 			fmt.Println(decodedPathVar)

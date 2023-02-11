@@ -20,9 +20,10 @@ import (
 	"regexp"
 	"strconv"
 	"time"
-	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/workwork/cmd/model"
+
+	"github.com/shenguanjiejie/go-tools/v2"
 	"github.com/spf13/cobra"
 )
 
@@ -62,7 +63,7 @@ var timeCmd = &cobra.Command{
 
 		unixB, err := cmd.Flags().GetBool(model.UnixFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
@@ -74,7 +75,7 @@ var timeCmd = &cobra.Command{
 
 		for _, arg := range args {
 			if arg == "" {
-				tools.Slogln("错误的时间格式")
+				tools.Logln("错误的时间格式")
 				continue
 			}
 
@@ -90,7 +91,7 @@ var timeCmd = &cobra.Command{
 					} else if length <= 10 {
 						date = time.Unix(int64(argInt), 0)
 					} else {
-						tools.Slogln("错误的时间戳格式")
+						tools.Logln("错误的时间戳格式")
 						continue
 					}
 				} else {
@@ -98,7 +99,7 @@ var timeCmd = &cobra.Command{
 					layout := timeFormats[0][:length]
 					date, err = time.ParseInLocation(layout, arg, time.Local)
 					if err != nil {
-						tools.Slogln("错误的时间格式")
+						tools.Logln("错误的时间格式")
 						continue
 					}
 				}
@@ -116,7 +117,7 @@ var timeCmd = &cobra.Command{
 			layout := timeFormats[0][:len(dateStr)]
 			date, err = time.ParseInLocation(layout, dateStr, time.Local)
 			if err != nil {
-				tools.Slogln("错误的时间格式")
+				tools.Logln("错误的时间格式")
 				continue
 			}
 			printDate(date)

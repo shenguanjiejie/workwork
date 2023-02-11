@@ -19,9 +19,10 @@ import (
 	"fmt"
 	"os"
 	"regexp"
-	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/workwork/cmd/model"
+
+	"github.com/shenguanjiejie/go-tools/v2"
 	"github.com/spf13/cobra"
 )
 
@@ -31,10 +32,10 @@ var regexCmd = &cobra.Command{
 	Short: "Regex test tool.<br>正则表达式测试工具",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		// tools.Slogln(args)
+		// tools.Logln(args)
 		wanna, err := cmd.Flags().GetString(model.WannaFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
@@ -45,7 +46,7 @@ var regexCmd = &cobra.Command{
 			}
 			reg := regexp.MustCompile(`\{[(\n\s+//.+)|\n]*\n\s+title\: '.*` + wannaRegexStr + `\n.+\n.+(\n\s+counterExamples:.+)?[(\n\s+//.+)|\n]*\n\},?`)
 			if reg == nil {
-				tools.Slogln("正则表达式初始化失败")
+				tools.Logln("正则表达式初始化失败")
 				return
 			}
 
@@ -58,19 +59,19 @@ var regexCmd = &cobra.Command{
 
 		match, err := cmd.Flags().GetBool(model.MatchFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
 		count, err := cmd.Flags().GetInt(model.FindFlagCount.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
 		file, err := cmd.Flags().GetString(model.FileFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
@@ -82,7 +83,7 @@ var regexCmd = &cobra.Command{
 			}
 			fileBytes, err := os.ReadFile(file)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Logln(err)
 				return
 			}
 
@@ -96,10 +97,10 @@ var regexCmd = &cobra.Command{
 		}
 
 		regexStr := args[0]
-		// tools.Slogln(regexStr, content)
+		// tools.Logln(regexStr, content)
 		reg, err := regexp.Compile(regexStr)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 

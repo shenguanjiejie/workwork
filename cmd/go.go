@@ -16,12 +16,11 @@ limitations under the License.
 package cmd
 
 import (
-	"workwork/cmd/model"
+	"github.com/shenguanjiejie/workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v2"
 	"github.com/spf13/cobra"
 	"github.com/traefik/yaegi/interp"
-	"github.com/traefik/yaegi/stdlib"
 )
 
 // goCmd represents the go command
@@ -32,7 +31,7 @@ var goCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		i := interp.New(interp.Options{})
 
-		i.Use(stdlib.Symbols)
+		i.Use(interp.Symbols)
 
 		_, err := i.Eval(`
 		import (
@@ -42,14 +41,14 @@ var goCmd = &cobra.Command{
 			"math"
 		)`)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
 		for _, arg := range args {
 			_, err = i.Eval(arg)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Logln(err)
 				continue
 			}
 		}

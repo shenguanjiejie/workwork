@@ -16,7 +16,7 @@ limitations under the License.
 package main
 
 import (
-	"workwork/cmd"
+	"github.com/shenguanjiejie/workwork/cmd"
 )
 
 func main() {

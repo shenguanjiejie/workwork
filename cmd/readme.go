@@ -18,9 +18,10 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/workwork/cmd/model"
+
+	"github.com/shenguanjiejie/go-tools/v2"
 	"github.com/spf13/cobra"
 )
 
@@ -47,7 +48,7 @@ var readmeCmd = &cobra.Command{
 		readme = readme + worksAnchor + macInstall + linuxInstall + works + todo
 		err := os.WriteFile("README.md", []byte(readme), 0755)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 		fmt.Println(readme)

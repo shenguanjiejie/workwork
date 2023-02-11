@@ -18,9 +18,10 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/workwork/cmd/model"
+
+	"github.com/shenguanjiejie/go-tools/v2"
 	"github.com/spf13/cobra"
 )
 
@@ -33,12 +34,12 @@ var md5Cmd = &cobra.Command{
 
 		file, err := cmd.Flags().GetString(model.FileFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
@@ -46,7 +47,7 @@ var md5Cmd = &cobra.Command{
 			// RJ 对文件进行MD5加密
 			fileBytes, err := os.ReadFile(file)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Logln(err)
 				return
 			}
 

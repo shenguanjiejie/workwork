@@ -17,12 +17,12 @@ package cmd
 
 import (
 	"fmt"
-	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/workwork/cmd/model"
+
+	"github.com/shenguanjiejie/go-tools/v2"
 	"github.com/spf13/cobra"
 	"github.com/traefik/yaegi/interp"
-	"github.com/traefik/yaegi/stdlib"
 )
 
 // ccCmd represents the cc command
@@ -47,11 +47,11 @@ var ccCmd = &cobra.Command{
 
 		i := interp.New(interp.Options{})
 
-		i.Use(stdlib.Symbols)
+		i.Use(interp.Symbols)
 
 		_, err := i.Eval(`import "fmt"`)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Logln(err)
 			return
 		}
 
@@ -59,7 +59,7 @@ var ccCmd = &cobra.Command{
 			evalStr := fmt.Sprintf("fmt.Println(%s)", arg)
 			_, err = i.Eval(evalStr)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Logln(err)
 				continue
 			}
 		}

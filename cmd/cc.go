@@ -1,3 +1,4 @@
+package cmd
 /*
 Copyright © 2022 shenguanjiejie <835166018@qq.com>
 
@@ -13,16 +14,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package cmd
+
 
 import (
 	"fmt"
-	"workwork/cmd/model"
 
 	"github.com/shenguanjiejie/go-tools/v3"
+	"github.com/shenguanjiejie/workwork/cmd/model"
 	"github.com/spf13/cobra"
 	"github.com/traefik/yaegi/interp"
-	"github.com/traefik/yaegi/stdlib"
 )
 
 // ccCmd represents the cc command
@@ -47,7 +47,7 @@ var ccCmd = &cobra.Command{
 
 		i := interp.New(interp.Options{})
 
-		i.Use(stdlib.Symbols)
+		i.Use(interp.Symbols)
 
 		_, err := i.Eval(`import "fmt"`)
 		if err != nil {

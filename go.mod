@@ -1,4 +1,4 @@
-module workwork
+module github.com/shenguanjiejie/workwork
 
 go 1.18
 

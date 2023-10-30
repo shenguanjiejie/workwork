@@ -1,3 +1,4 @@
+package cmd
 /*
 Copyright © 2022 shenguanjiejie <835166018@qq.com>
 
@@ -13,7 +14,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package cmd
+
 
 import (
 	"encoding/base64"
@@ -23,9 +24,9 @@ import (
 	"regexp"
 	"strings"
 	"time"
-	"workwork/cmd/model"
 
 	"github.com/shenguanjiejie/go-tools/v3"
+	"github.com/shenguanjiejie/workwork/cmd/model"
 	"github.com/spf13/cobra"
 )
 

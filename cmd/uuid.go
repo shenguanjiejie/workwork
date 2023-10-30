@@ -18,10 +18,10 @@ limitations under the License.
 
 import (
 	"fmt"
-	"workwork/cmd/model"
 
 	"github.com/google/uuid"
 	"github.com/shenguanjiejie/go-tools/v3"
+	"github.com/shenguanjiejie/workwork/cmd/model"
 	"github.com/spf13/cobra"
 )
 

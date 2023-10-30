@@ -1,3 +1,5 @@
+package cmd
+
 /*
 Copyright © 2022 shenguanjiejie <835166018@qq.com>
 
@@ -13,15 +15,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package cmd
 
 import (
-	"workwork/cmd/model"
+	"github.com/shenguanjiejie/workwork/cmd/model"
 
 	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 	"github.com/traefik/yaegi/interp"
-	"github.com/traefik/yaegi/stdlib"
 )
 
 // goCmd represents the go command
@@ -32,7 +32,7 @@ var goCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		i := interp.New(interp.Options{})
 
-		i.Use(stdlib.Symbols)
+		i.Use(interp.Symbols)
 
 		_, err := i.Eval(`
 		import (

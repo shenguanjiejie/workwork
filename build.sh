@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.0.3"
+version="0.0.4"
 
 GOOS=linux GOARCH=amd64 go build -o ww
 tar -zcvf workwork_${version}_linux_x86_64.tar.gz ww

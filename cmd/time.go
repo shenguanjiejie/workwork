@@ -1,3 +1,5 @@
+package cmd
+
 /*
 Copyright © 2022 shenguanjiejie <835166018@qq.com>
 
@@ -5,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +15,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package cmd
 
 import (
 	"fmt"
@@ -22,7 +23,7 @@ import (
 	"time"
 	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 )
 
@@ -31,7 +32,7 @@ var timeFormats = []string{
 	"2006-01-02 15:04:05",
 	"2006/01/02 15:04:05",
 	"2006年01月02日 15时04分05秒",
-	"2006年1月2日 3:4:5",
+	// "2006年1月2日 3:4:5",
 	"2006-01-02T15:04:05.999Z", // UTC, ISO 8601, YYYY-MM-DDThh:mm:ss.sssZ
 	time.ANSIC,
 }
@@ -62,7 +63,7 @@ var timeCmd = &cobra.Command{
 
 		unixB, err := cmd.Flags().GetBool(model.UnixFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
@@ -74,7 +75,7 @@ var timeCmd = &cobra.Command{
 
 		for _, arg := range args {
 			if arg == "" {
-				tools.Slogln("错误的时间格式")
+				tools.Info("错误的时间格式")
 				continue
 			}
 
@@ -90,7 +91,7 @@ var timeCmd = &cobra.Command{
 					} else if length <= 10 {
 						date = time.Unix(int64(argInt), 0)
 					} else {
-						tools.Slogln("错误的时间戳格式")
+						tools.Info("错误的时间戳格式")
 						continue
 					}
 				} else {
@@ -98,7 +99,7 @@ var timeCmd = &cobra.Command{
 					layout := timeFormats[0][:length]
 					date, err = time.ParseInLocation(layout, arg, time.Local)
 					if err != nil {
-						tools.Slogln("错误的时间格式")
+						tools.Info("错误的时间格式")
 						continue
 					}
 				}
@@ -116,7 +117,7 @@ var timeCmd = &cobra.Command{
 			layout := timeFormats[0][:len(dateStr)]
 			date, err = time.ParseInLocation(layout, dateStr, time.Local)
 			if err != nil {
-				tools.Slogln("错误的时间格式")
+				tools.Info("错误的时间格式")
 				continue
 			}
 			printDate(date)
@@ -129,17 +130,19 @@ func printDate(date time.Time) {
 	fmt.Print("    ")
 	for i, format := range timeFormats {
 		if i == 4 {
-			if date.Hour() > 10 {
-				fmt.Print(date.Format("2006年1月2日 15:4:5"))
-			} else {
-				fmt.Print(date.Format(format))
-			}
-			fmt.Print(" " + weekMap[date.Weekday()])
-		} else if i == 5 {
 			utcDate := date.UTC()
 			fmt.Print(utcDate.Format(format))
 		} else {
 			fmt.Print(date.Format(format))
+		}
+
+		if i == 3 {
+			// if date.Hour() > 10 {
+			// 	fmt.Print(date.Format("2006年1月2日 15:4:5"))
+			// } else {
+			// 	fmt.Print(date.Format(format))
+			// }
+			fmt.Print(" " + weekMap[date.Weekday()])
 		}
 
 		if i != len(timeFormats)-1 {

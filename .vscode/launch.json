@@ -13,7 +13,8 @@
       "program": "${workspaceFolder}/main.go",
       "showLog": true,
       // "args": ["base64","-d","-i","~/Desktop/base64.txt"]
-      "args": ["time","20220802"]
+      // "args": ["time","20220802"]
+      "args": ["uuid","-c","5","-v","4"]
     }
   ]
 }

@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ import (
 	"time"
 	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 )
 
@@ -37,18 +37,18 @@ var base64Cmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		file, err := cmd.Flags().GetString(model.FileFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 		decodeB, err := cmd.Flags().GetBool(model.DecodeFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
 		imageB, err := cmd.Flags().GetBool(model.ImageFlagBase64.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
@@ -56,7 +56,7 @@ var base64Cmd = &cobra.Command{
 		if file != "" {
 			fileBytes, err := os.ReadFile(file)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Info(err)
 				return
 			}
 
@@ -90,21 +90,21 @@ func base64Decode(content []byte, imageB bool) error {
 	imageReg := regexp.MustCompile(`^data:image\/(?:gif|png|jpeg|bmp|webp|svg\+xml)(?:;charset=utf-8)?;base64,`)
 	if imageReg == nil {
 		err := errors.New("imageReg初始化失败")
-		tools.Slogln(err)
+		tools.Info(err)
 		return err
 	}
 
 	reg := regexp.MustCompile(`(^data:image\/(?:gif|png|jpeg|bmp|webp|svg\+xml)(?:;charset=utf-8)?;base64,)?(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$`)
 	if reg == nil {
 		err := errors.New("reg初始化失败")
-		tools.Slogln(err)
+		tools.Info(err)
 		return err
 	}
 
 	match := reg.Match(content)
 	if !match {
 		err := errors.New("非base64格式内容, 无法进行decode")
-		tools.Slogln(err)
+		tools.Info(err)
 		return err
 	}
 
@@ -113,7 +113,7 @@ func base64Decode(content []byte, imageB bool) error {
 	content = content[len(prefixByte):]
 	decodeResult, err := base64.StdEncoding.DecodeString(string(content))
 	if err != nil {
-		tools.Slogln(err)
+		tools.Info(err)
 		return err
 	}
 
@@ -129,7 +129,7 @@ func base64Decode(content []byte, imageB bool) error {
 		f.Write(decodeResult)
 		fPath, err := os.Getwd()
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return err
 		}
 		fmt.Println("图片已保存到: " + fPath + "/" + fName)

@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -77,4 +77,18 @@ var FindFlagCount = &Flag[any]{
 	Shorthand: "c",
 	Value:     1,
 	Usage:     "Specify the maximum number of matches. return the first one by default.<br> 使用查找匹配文本内容时, 用该int值指定返回的最大匹配数量, 默认只返回第一个匹配项",
+}
+
+var UUIDFlagCount = &Flag[any]{
+	Name:      "count",
+	Shorthand: "c",
+	Value:     1,
+	Usage:     "UUID count.<br> UUID 个数",
+}
+
+var UUIDFlagVersion = &Flag[any]{
+	Name:      "version",
+	Shorthand: "v",
+	Value:     4,
+	Usage:     "UUID version, default: 4.<br> UUID 版本, 默认: 4",
 }

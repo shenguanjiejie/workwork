@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import (
 	"net/url"
 	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 )
 
@@ -31,7 +31,7 @@ var urlCmd = &cobra.Command{
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			tools.Slogln("没有输入URL")
+			tools.Info("没有输入URL")
 			return
 		}
 
@@ -39,20 +39,20 @@ var urlCmd = &cobra.Command{
 
 		decodeB, err := cmd.Flags().GetBool(model.DecodeFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 		if decodeB {
 			decodedStr, err := url.QueryUnescape(urlStr)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Info(err)
 				return
 			}
 			fmt.Println(decodedStr)
 
 			decodedPathVar, err := url.PathUnescape(urlStr)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Info(err)
 				return
 			}
 			fmt.Println(decodedPathVar)

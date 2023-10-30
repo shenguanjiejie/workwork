@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,7 +21,7 @@ import (
 	"regexp"
 	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 )
 
@@ -31,10 +31,10 @@ var regexCmd = &cobra.Command{
 	Short: "Regex test tool.<br>正则表达式测试工具",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		// tools.Slogln(args)
+		// tools.Info(args)
 		wanna, err := cmd.Flags().GetString(model.WannaFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
@@ -45,7 +45,7 @@ var regexCmd = &cobra.Command{
 			}
 			reg := regexp.MustCompile(`\{[(\n\s+//.+)|\n]*\n\s+title\: '.*` + wannaRegexStr + `\n.+\n.+(\n\s+counterExamples:.+)?[(\n\s+//.+)|\n]*\n\},?`)
 			if reg == nil {
-				tools.Slogln("正则表达式初始化失败")
+				tools.Info("正则表达式初始化失败")
 				return
 			}
 
@@ -58,19 +58,19 @@ var regexCmd = &cobra.Command{
 
 		match, err := cmd.Flags().GetBool(model.MatchFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
 		count, err := cmd.Flags().GetInt(model.FindFlagCount.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
 		file, err := cmd.Flags().GetString(model.FileFlag.Name)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
@@ -82,7 +82,7 @@ var regexCmd = &cobra.Command{
 			}
 			fileBytes, err := os.ReadFile(file)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Info(err)
 				return
 			}
 
@@ -96,10 +96,10 @@ var regexCmd = &cobra.Command{
 		}
 
 		regexStr := args[0]
-		// tools.Slogln(regexStr, content)
+		// tools.Info(regexStr, content)
 		reg, err := regexp.Compile(regexStr)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 

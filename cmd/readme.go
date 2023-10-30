@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@ import (
 	"os"
 	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 )
 
@@ -31,7 +31,7 @@ var readmeCmd = &cobra.Command{
 	Long:  `readme`,
 	Run: func(cmd *cobra.Command, args []string) {
 		worksAnchor, works := works()
-		version := "0.0.3"
+		version := "0.0.4"
 		download := "or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move \"ww\" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可\n"
 		macInstall := fmt.Sprintf("# Install\n### Mac\n```shell\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_darwin.tar.gz && tar -zxvf ./workwork_%s_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_darwin.tar.gz && rm ./ww\n```\n%s", version, version, version, version, download)
 		linuxInstall := fmt.Sprintf("### Linux\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_linux_x86_64.tar.gz && tar -zxvf ./workwork_%s_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_linux_x86_64.tar.gz && rm ./ww\n```\n%s", version, version, version, version, download)
@@ -47,7 +47,7 @@ var readmeCmd = &cobra.Command{
 		readme = readme + worksAnchor + macInstall + linuxInstall + works + todo
 		err := os.WriteFile("README.md", []byte(readme), 0755)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 		fmt.Println(readme)

@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,7 +18,7 @@ package cmd
 import (
 	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 	"github.com/traefik/yaegi/interp"
 	"github.com/traefik/yaegi/stdlib"
@@ -42,14 +42,14 @@ var goCmd = &cobra.Command{
 			"math"
 		)`)
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
 		for _, arg := range args {
 			_, err = i.Eval(arg)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Info(err)
 				continue
 			}
 		}

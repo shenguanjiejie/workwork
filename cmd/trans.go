@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,13 +16,12 @@ limitations under the License.
 package cmd
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/url"
 	"regexp"
 	"workwork/cmd/model"
 
-	"github.com/shenguanjiejie/go-tools"
+	"github.com/shenguanjiejie/go-tools/v3"
 	"github.com/spf13/cobra"
 )
 
@@ -39,7 +38,7 @@ var transCmd = &cobra.Command{
 		chineseReg, err := regexp.Compile(`.*(\p{Han})+.*`)
 
 		if err != nil {
-			tools.Slogln(err)
+			tools.Info(err)
 			return
 		}
 
@@ -57,16 +56,10 @@ var transCmd = &cobra.Command{
 			values.Set("appid", "20220706001266131")
 			values.Set("salt", "1435660288")
 			values.Set("sign", tools.MD5(values.Get("appid")+arg+values.Get("salt")+"_C0GKlwvijHwoj9GpWFH"))
-			result, err := tools.HttpGet("https://fanyi-api.baidu.com/api/trans/vip/translate", values)
-			if err != nil {
-				tools.Slogln(err)
-				return
-			}
-
 			transInfo := new(model.TransInfo)
-			err = json.Unmarshal(result, &transInfo)
+			err := tools.Get("https://fanyi-api.baidu.com/api/trans/vip/translate", values, transInfo)
 			if err != nil {
-				tools.Slogln(err)
+				tools.Info(err)
 				return
 			}
 

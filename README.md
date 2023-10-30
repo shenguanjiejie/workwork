@@ -16,6 +16,8 @@ Developer/Tester common tools CLI. <br>开发/测试常用工具CLI
 > [Chinese/English Translate tool.<br>汉英/英汉翻译](#trans)
 
 > [URL encode/decode.<br>URL编码/解码](#url)
+
+> [uuid](#uuid)
 # Install
 ### Mac
 ```shell
@@ -23,12 +25,12 @@ brew install shenguanjiejie/tap/workwork
 ```
 or
 ```shell
-wget https://github.com/shenguanjiejie/workwork/releases/download/v0.0.3/workwork_0.0.3_darwin.tar.gz && tar -zxvf ./workwork_0.0.3_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.3_darwin.tar.gz && rm ./ww
+wget https://github.com/shenguanjiejie/workwork/releases/download/v0.0.4/workwork_0.0.4_darwin.tar.gz && tar -zxvf ./workwork_0.0.4_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.4_darwin.tar.gz && rm ./ww
 ```
 or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
 ### Linux
 ```shell
-wget https://github.com/shenguanjiejie/workwork/releases/download/v0.0.3/workwork_0.0.3_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.3_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.3_linux_x86_64.tar.gz && rm ./ww
+wget https://github.com/shenguanjiejie/workwork/releases/download/v0.0.4/workwork_0.0.4_linux_x86_64.tar.gz && tar -zxvf ./workwork_0.0.4_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_0.0.4_linux_x86_64.tar.gz && rm ./ww
 ```
 or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move "ww" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可
 # base64
@@ -89,6 +91,15 @@ URL encode/decode.<br>URL编码/解码
 |--decode|-d|false|Decode flag. <br>是否是要解码|
 
 ![url](resources/url.png)
+# uuid
+uuid<br>Multiple support<br>支持输出多个uuid
+
+|params(参数)|shorthand(缩写)|default(默认值)|usage(说明)|
+|---|---|---|---|
+|--count|-c|1|UUID count.<br> UUID 个数|
+|--version|-v|4|UUID version, default: 4.<br> UUID 版本, 默认: 4|
+
+![uuid](resources/uuid.png)
 
 # TODO:
 1. 默认保存路径配置, 默认读取文件路径配置. (Default I/O path config)

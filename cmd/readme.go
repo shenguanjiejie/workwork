@@ -1,4 +1,5 @@
 package cmd
+
 /*
 Copyright © 2022 shenguanjiejie <835166018@qq.com>
 
@@ -14,7 +15,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
 
 import (
 	"fmt"
@@ -32,7 +32,7 @@ var readmeCmd = &cobra.Command{
 	Long:  `readme`,
 	Run: func(cmd *cobra.Command, args []string) {
 		worksAnchor, works := works()
-		version := "0.0.4"
+		version := "1.0.1"
 		download := "or<br><br>[Download](https://github.com/shenguanjiejie/workwork/releases), Unpack, and move \"ww\" to /usr/local/bin.<br>到[release页面](https://github.com/shenguanjiejie/workwork/releases)下载后, 解压出ww文件, 放在/usr/local/bin目录下即可\n"
 		macInstall := fmt.Sprintf("# Install\n### Mac\n```shell\nbrew install shenguanjiejie/tap/workwork\n```\nor\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_darwin.tar.gz && tar -zxvf ./workwork_%s_darwin.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_darwin.tar.gz && rm ./ww\n```\n%s", version, version, version, version, download)
 		linuxInstall := fmt.Sprintf("### Linux\n```shell\nwget https://github.com/shenguanjiejie/workwork/releases/download/v%s/workwork_%s_linux_x86_64.tar.gz && tar -zxvf ./workwork_%s_linux_x86_64.tar.gz && mv ./ww /usr/local/bin && rm ./workwork_%s_linux_x86_64.tar.gz && rm ./ww\n```\n%s", version, version, version, version, download)
